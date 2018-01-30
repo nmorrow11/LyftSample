@@ -1,16 +1,15 @@
-from flask import Flask
-from flask import request
-from flask import jsonify
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
-#this route prints text when you go to the page
+
 @app.route('/')
 def index():
-    return 'My first flask app'
+    """render text when site is visited"""
+    return 'My Lyft Technical Sample'
 
-#this is the test route that takes 2 numbers and returns a dictionary of their sum
 @app.route('/test', methods = ['POST'])
 def sum():
+    """return a dictionary of the sum of 2 numbers"""
     content = request.get_json()
     if set(('x', 'y')) <= set(content):
         if isinstance(content['x'], (int, long, float)) and isinstance(content['y'], (int, long, float)):
@@ -21,4 +20,4 @@ def sum():
     return jsonify('X and Y are not both keys in the dictionary')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
