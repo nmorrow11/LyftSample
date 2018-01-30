@@ -5,7 +5,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     """ Render text when site is visited. """
-    return 'My Lyft Technical Sample'
+    return 'My Lyft Technical Sample.'
 
 @app.route('/test', methods = ['POST'])
 def sum():
@@ -19,8 +19,8 @@ def sum():
             answer = {'sum' : x + y}
             return jsonify(answer)
         else:
-            return jsonify('x and/or y is not an int, long, or float')
-    return jsonify('x and y are not both keys in the dictionary')
+            return jsonify('x and/or y is not an int, long, or float.')
+    return jsonify('x and y are not both keys in the dictionary.')
 
 if __name__ == '__main__':
     app.run()
